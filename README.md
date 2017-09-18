@@ -6,19 +6,6 @@ Project to help anyone to make a crud on Laravel easier
 
 ## Installation
 - With composer run `composer require weblabormx/laravel-crud-helper` 
-- Modify AppServiceProvider and add the next code
-```php
-use WeblaborMX\LaravelCrudHelper\Services;
-
-class AppServiceProvider extends ServiceProvider
-{
-    use Services;
-
-    public function boot()
-    {
-        $this->addServices();            
-    }
-```
 
 ## Documentation
 
