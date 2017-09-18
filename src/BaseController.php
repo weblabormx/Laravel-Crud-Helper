@@ -2,10 +2,9 @@
 
 namespace WeblaborMX\LaravelCrudHelper;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 
-class BaseController extends Controller
+trait BaseController
 {
 
     public function load() {

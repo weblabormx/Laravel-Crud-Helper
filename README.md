@@ -42,8 +42,9 @@ You will need to add some fields
 ```php
 use WeblaborMX\LaravelCrudHelper\BaseController;
 
-class AccountController extends BaseController
+class AccountController extends Controller
 {
+	use BaseController;
 
     protected $module = 'account';
     protected $request = 'App\Http\Requests\AccountRequest';
@@ -61,9 +62,9 @@ This help you to add create and update functions to your repository. (of course,
 ```php
 use WeblaborMX\LaravelCrudHelper\BaseRepository;
 
-class SuscriptionRepository extends BaseRepository
+class SuscriptionRepository
 {
-	
+	use BaseRepository;
 }
 ```
 
