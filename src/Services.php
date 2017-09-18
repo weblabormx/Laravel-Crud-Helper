@@ -3,6 +3,8 @@
 namespace WeblaborMX\LaravelCrudHelper;
 
 use Illuminate\Support\Facades\Blade;
+use Route;
+use Illuminate\Http\Request;
 
 trait Services
 {
