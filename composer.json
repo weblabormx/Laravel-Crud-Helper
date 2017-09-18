@@ -1,0 +1,27 @@
+{
+    "name": "weblabormx/laravel-crud-helper",
+    "description": "Tool to help to make CRUDs on Laravel",
+    "authors": [
+        {
+            "name": "Carlos Escobar",
+            "email": "carlosescobar@weblabor.mx"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WeblaborMX\\LaravelCrudHelper\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.3.0",
+        "weblabormx/file-modifier": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "WeblaborMX\\FileModifier\\": "src/"
+        }
+    }
+}
