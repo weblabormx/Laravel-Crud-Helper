@@ -103,4 +103,4 @@ You will be able to change the another views adding some files in $base/$module 
 
 You can create scripts.blade file to add javascript in create and edit views.
 
-You can customize the default views publishing them with `php artisan vendor:publish`, it will be add it in vendor folder.
+You can customize the default views publishing them with `php artisan vendor:publish --provider="WeblaborMX\LaravelCrudHelper\CrudHelperProvider"`, it will be add it in vendor folder.

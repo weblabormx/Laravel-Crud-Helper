@@ -4,7 +4,7 @@ namespace WeblaborMX\LaravelCrudHelper;
 
 use Illuminate\Support\ServiceProvider;
 
-class Provider extends ServiceProvider
+class CrudHelperProvider extends ServiceProvider
 {
     use Services;
 
