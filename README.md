@@ -56,6 +56,17 @@ class AccountController extends Controller
 }
 ```
 
+#### Redirections
+By default the controller redirects with the next values
+```php
+$redirects = [
+    'store' => $this->url,
+    'update' => 'back', // Return back
+    'destroy' => $this->url
+];
+```
+You are able to change it adding the `protected $redirects` attribute in the controller
+
 ### Repositories
 This help you to add create and update functions to your repository. (of course, you are able to add it too)
 

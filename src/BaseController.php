@@ -17,6 +17,20 @@ trait BaseController
             $this->object = 'App\\'.ucfirst($this->module);
         if(!isset($this->request))
             $this->request = $this->normal_request;
+        $redirects = [
+            'store' => $this->url,
+            'update' => 'back',
+            'destroy' => $this->url
+        ];
+        if(isset($this->redirects) && is_array($this->redirects))
+            $redirects = array_merge($redirects, $this->redirects);
+        $this->redirects = $redirects;
+    }
+
+    private function makeRedirection($url) {
+        if($url=='back')
+            return back();
+        return redirect($url);
     }
 
     public function index()
@@ -48,7 +62,7 @@ trait BaseController
         $request = app($this->request);
         $this->repository->store($request->all());
         flash()->success(trans('messages.saved_successfull'));
-        return redirect($this->url);
+        return $this->makeRedirection($this->redirects['store']);
     }
 
     public function show(Model $object)
@@ -78,14 +92,14 @@ trait BaseController
 
         $this->repository->update($object, $request->all());
         flash()->success(trans('messages.edited_successfull'));
-        return back();
+        return $this->makeRedirection($this->redirects['update']);
     }
 
     public function destroy(Model $object)
     {
         $this->repository->destroy($object);
         flash()->success(trans('messages.removed_successfull'));
-        return redirect($this->url);
+        return $this->makeRedirection($this->redirects['destroy']);
     }
 
 }
