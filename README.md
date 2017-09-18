@@ -55,6 +55,18 @@ class AccountController extends BaseController
 }
 ```
 
+### Repositories
+This help you to add create and update functions to your repository. (of course, you are able to add it too)
+
+```php
+use WeblaborMX\LaravelCrudHelper\BaseRepository;
+
+class SuscriptionRepository extends BaseRepository
+{
+	
+}
+```
+
 ### New blade functions
 #### If Route exists
 ```php
@@ -75,3 +87,5 @@ You will be able to change the another views adding some files in $base/$module 
 - show
 
 You can create scripts.blade file to add javascript in create and edit views.
+
+You can customize the default views publishing them with `php artisan vendor:publish`, it will be add it in vendor folder.

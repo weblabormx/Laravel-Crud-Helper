@@ -16,6 +16,9 @@ class Provider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__.'/views', 'laravel-crud-helper');
+        $this->publishes([
+            __DIR__.'/views' => resource_path('views/vendor/laravel-crud-helper'),
+        ]);
         $this->addServices();
             
     }
