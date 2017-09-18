@@ -17,7 +17,8 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.3.0",
-        "weblabormx/file-modifier": "*"
+        "weblabormx/file-modifier": "*",
+        "laracasts/flash": "*"
     },
     "autoload": {
         "psr-4": {

@@ -9,6 +9,9 @@ Project to help anyone to make a crud on Laravel easier
 
 ## Documentation
 
+### Dependencies
+This package include `Laracast/Flash` package, so, you should add `@include('flash::message')` code in your view to show the messages
+
 ### Improved Model
 Extending the model to this class will allow to
 - save updated by and created by fields automatically
