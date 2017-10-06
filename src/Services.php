@@ -31,30 +31,24 @@ trait Services
 
         // Add all binds of all models on the folder
         foreach ($this->getModels() as $model) {
-            $snake = snake_case($model);
-            $model = 'App\\'.$model;
+            $snake = snake_case($model['name']);
             Route::bind($snake, function ($value) use ($model) {
-                return $model::findOrFail($value);
+                return $model['model']::findOrFail($value);
             });
         }
 
     }
 
     public function getModels(){
-        $path = app_path();
-        $out = [];
-        $results = scandir($path);
-        foreach ($results as $result) {
-            if ($result === '.' or $result === '..') continue;
-            $filename = $path . '/' . $result;
-            if (!is_dir($filename)) {
-                $name = substr($filename,0,-4);
-                $name = strstr($name, 'app');
-                $name = str_replace('app/', '', $name);
-                $out[] = $name;
-            }
-        }
-        return $out;
+        $files = \File::files('App');
+        if(count($files)==0)
+            $files = \File::allFiles('App\Models');
+        return collect($files)->map(function($file) {
+            return [
+                'model' => str_replace('.php', '', $file->getPathname()),
+                'name' => str_replace('.php', '', $file->getBasename())
+            ];
+        });
     }
 
 }

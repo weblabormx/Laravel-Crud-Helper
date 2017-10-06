@@ -13,8 +13,6 @@ trait BaseController
         $this->views_directory = $this->base.'.'.$this->module;
         $this->url = $this->base.'/'.$this->module;
         $this->normal_request = 'Illuminate\Http\Request';
-        if(!isset($this->object))
-            $this->object = 'App\\'.ucfirst($this->module);
         if(!isset($this->request))
             $this->request = $this->normal_request;
         $redirects = [
