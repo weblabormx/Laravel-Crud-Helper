@@ -44,8 +44,10 @@ trait Services
         if(count($files)==0)
             $files = \File::allFiles(base_path('App\Models'));
         return collect($files)->map(function($file) {
+            $model = str_replace('.php', '', $file->getPathname());
+            $model = substr($model, strpos($model, "App") );
             return [
-                'model' => str_replace('.php', '', $file->getPathname()),
+                'model' => $model,
                 'name' => str_replace('.php', '', $file->getBasename())
             ];
         });
