@@ -51,7 +51,7 @@ use WeblaborMX\LaravelCrudHelper\BaseController;
 
 class AccountController extends Controller
 {
-	use BaseController;
+    use BaseController;
 
     protected $module = 'account';
     protected $request = 'App\Http\Requests\AccountRequest';
@@ -82,7 +82,7 @@ use WeblaborMX\LaravelCrudHelper\BaseRepository;
 
 class SuscriptionRepository
 {
-	use BaseRepository;
+    use BaseRepository;
 }
 ```
 
@@ -90,7 +90,7 @@ class SuscriptionRepository
 #### If Route exists
 ```php
 @route('admin.test')
-	Enter if exists that view
+    Enter if exists that view
 @endroute
 ```
 
