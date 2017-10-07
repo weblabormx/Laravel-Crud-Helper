@@ -2,9 +2,9 @@
 
 @section('content')
 	
-	@component('laravel-crud-helper::module-header', ['object' => $object, 'module' => $module])
+	@component('laravel-crud-helper::module-header')
 	@endcomponent
 
-	@include('laravel-crud-helper::index-table', ['object' => $object, 'module' => $module])
+	@include('laravel-crud-helper::index-table')
 
 @stop

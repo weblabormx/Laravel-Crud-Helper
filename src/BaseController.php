@@ -41,10 +41,11 @@ trait BaseController
         $request = app($this->normal_request);
         $object = $this->repository->index($request->all());
         $module = $this->module;
+        $views_directory = $this->views_directory;
         $view = 'laravel-crud-helper::base.index';
         if(\View::exists($this->views_directory.'.index'))
             $view = $this->views_directory.'.index';
-        return view($view, compact('object', 'module'));
+        return view($view, compact('object', 'module', 'views_directory'));
     }
 
     public function create()
