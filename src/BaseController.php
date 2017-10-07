@@ -10,11 +10,16 @@ trait BaseController
     public function load() {
         if(!isset($this->base))
             $this->base = 'admin';
-        $this->views_directory = $this->base.'.'.$this->module;
+        if(!isset($this->view_base))
+            $this->view_base = $this->base;
+        if(!isset($this->views_directory))
+            $this->views_directory = $this->view_base.'.'.$this->module;
         $this->url = $this->base.'/'.$this->module;
         $this->normal_request = 'Illuminate\Http\Request';
-        if(!isset($this->request))
-            $this->request = $this->normal_request;
+        if(isset($this->request))
+            $this->request_uri = 'App\Http\Requests\\'.$this->request;
+        if(!isset($this->request_uri))
+            $this->request_uri = $this->normal_request;
         $redirects = [
             'store' => $this->url,
             'update' => 'back',
@@ -57,7 +62,7 @@ trait BaseController
 
     public function store()
     {
-        $request = app($this->request);
+        $request = app($this->request_uri);
         $this->repository->store($request->all());
         flash()->success(trans('messages.saved_successfull'));
         return $this->makeRedirection($this->redirects['store']);
@@ -86,7 +91,7 @@ trait BaseController
 
     public function update(Model $object)
     {
-        $request = app($this->request);
+        $request = app($this->request_uri);
 
         $this->repository->update($object, $request->all());
         flash()->success(trans('messages.edited_successfull'));

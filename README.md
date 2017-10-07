@@ -39,9 +39,12 @@ $table->integer('created_by')->nullable();
 Controllers will help you to make all the functions of a resource, to implement you will need to add the next code in the controller
 
 You will need to add some fields
-- $module - Name of the module, with this will detect Model, Url, directory of views and more
-- $base (Default admin) - Base of url
-- $request (Optional) - Name of the class for making request
+- `$module` - Name of the module, with this will detect Model, Url, directory of views and more
+- `$base` (Default admin) - Base of url
+- `$request` (Optional) - Base Name of the class for making request, without `App\Http\Requests\`
+- `$view_base` (Optional) - The base directory of views, by default is the same as `$base` 
+- `$views_directory` (Optional) - The directory of the view, by default is `$view_base.'.'.$module` 
+
 ```php
 use WeblaborMX\LaravelCrudHelper\BaseController;
 
