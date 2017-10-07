@@ -16,8 +16,10 @@ trait BaseController
             $this->views_directory = $this->view_base.'.'.$this->module;
         $this->url = $this->base.'/'.$this->module;
         $this->normal_request = 'Illuminate\Http\Request';
+        if(!isset($this->request_base))
+            $this->request_base = 'App\Http\Requests\\';
         if(isset($this->request))
-            $this->request_uri = 'App\Http\Requests\\'.$this->request;
+            $this->request_uri = $this->request_base.$this->request;
         if(!isset($this->request_uri))
             $this->request_uri = $this->normal_request;
         $redirects = [
