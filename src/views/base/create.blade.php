@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	@component('comp.module-header', ['module' => $module, 'create' => true])
+	@component('laravel-crud-helper::module-header', ['module' => $module, 'create' => true])
 	@endcomponent
 
 	@include('errors.partial-list')

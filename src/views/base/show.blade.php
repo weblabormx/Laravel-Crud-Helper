@@ -2,11 +2,11 @@
 
 @section('content')
 	
-	@component('comp.module-header', ['module' => $module, 'object' => $object])
+	@component('laravel-crud-helper::module-header', ['module' => $module, 'object' => $object])
 		{{$object->title}}
 	@endcomponent
 
-	@component('comp.show-variables', ['object' => $object])
+	@component('laravel-crud-helper::show-variables', ['object' => $object])
 	    @slot('left')
 	    	@foreach($object->fillable as $fill)
 	    		@isset($object->$fill)

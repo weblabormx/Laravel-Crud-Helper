@@ -36,7 +36,7 @@ trait BaseController
         $request = app($this->normal_request);
         $object = $this->repository->index($request->all());
         $module = $this->module;
-        $view = 'laravel-crud-helper::index';
+        $view = 'laravel-crud-helper::base.index';
         if(\View::exists($this->views_directory.'.index'))
             $view = $this->views_directory.'.index';
         return view($view, compact('object', 'module'));
@@ -49,7 +49,7 @@ trait BaseController
         $module = $this->module;
         $url = $this->url;
         $views_directory = $this->views_directory;
-        $view = 'laravel-crud-helper::create';
+        $view = 'laravel-crud-helper::base.create';
         if(\View::exists($this->views_directory.'.create'))
             $view = $this->views_directory.'.create';
         return view($view, compact('module', 'url', 'views_directory', $array));
@@ -67,7 +67,7 @@ trait BaseController
     {
         $views_directory = $this->views_directory;
         $module = $this->module;
-        $view = 'laravel-crud-helper::show';
+        $view = 'laravel-crud-helper::base.show';
         if(\View::exists($this->views_directory.'.show'))
             $view = $this->views_directory.'.show';
         return view($view, compact('object', 'module'));
@@ -78,7 +78,7 @@ trait BaseController
         $url = $this->url.'/'.$object->primary_url;
         $module = $this->module;
         $views_directory = $this->views_directory;
-        $view = 'laravel-crud-helper::edit';
+        $view = 'laravel-crud-helper::base.edit';
         if(\View::exists($this->views_directory.'.edit'))
             $view = $this->views_directory.'.edit';
         return view($view, compact('module', 'url', 'views_directory', 'object'));

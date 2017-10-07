@@ -40,9 +40,9 @@ trait Services
     }
 
     public function getModels(){
-        $files = \File::files('App');
+        $files = \File::files(base_path('App'));
         if(count($files)==0)
-            $files = \File::allFiles('App\Models');
+            $files = \File::allFiles(base_path('App\Models'));
         return collect($files)->map(function($file) {
             return [
                 'model' => str_replace('.php', '', $file->getPathname()),

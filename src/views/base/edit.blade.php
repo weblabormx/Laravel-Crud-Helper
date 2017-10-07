@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	@component('comp.module-header', ['module' => $module, 'edit' => true, 'object' => $object])
+	@component('laravel-crud-helper::module-header', ['module' => $module, 'edit' => true, 'object' => $object])
 		{!!$object->title!!}
 	@endcomponent
 	
