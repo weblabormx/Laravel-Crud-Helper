@@ -6,6 +6,6 @@
 	</div>
 @else
 	<div class="no-content">
-		Sin resultados para mostrar
+		{{trans('laravel-crud-helper::helper.no_results')}}
 	</div>
 @endif

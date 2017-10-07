@@ -6,7 +6,7 @@
 		{!!$object->title!!}
 	@endcomponent
 	
-	@include('errors.partial-list')
+	@include('laravel-crud-helper::errors')
 
 	{!! Form::model($object, array('method' => 'put', 'url' => $url)) !!}
 	    @include($views_directory.'.partial-form', ['submitButtonText' => trans('messages.edit')])

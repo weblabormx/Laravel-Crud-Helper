@@ -19,6 +19,7 @@ class CrudHelperProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/views' => resource_path('views/vendor/laravel-crud-helper'),
         ]);
+        $this->loadTranslationsFrom(__DIR__.'/lang', 'laravel-crud-helper');
         $this->addServices();
             
     }

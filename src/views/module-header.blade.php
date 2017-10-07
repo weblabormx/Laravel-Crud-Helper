@@ -22,7 +22,7 @@
     @if(isset($object) && count($object)>1)
         <div id="quantity">
             <i class="fa fa-pie-chart"></i>
-            <p>Total</p>
+            <p>{{trans('laravel-crud-helpers::helper.total')}}</p>
             <p id="number">{{count($object)}}</p>
         </div>
     @endif
