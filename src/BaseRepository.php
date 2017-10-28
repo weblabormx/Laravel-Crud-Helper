@@ -3,7 +3,7 @@
 namespace WeblaborMX\LaravelCrudHelper;
 
 trait BaseRepository
-{	
+{   
 
     public function index($inputs) {
         return;

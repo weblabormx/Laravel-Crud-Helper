@@ -22,7 +22,7 @@
     @if(isset($object) && count($object)>1)
         <div id="quantity">
             <i class="fa fa-pie-chart"></i>
-            <p>{{trans('laravel-crud-helpers::helper.total')}}</p>
+            <p>{{trans('laravel-crud-helper::helper.total')}}</p>
             <p id="number">{{count($object)}}</p>
         </div>
     @endif
@@ -39,21 +39,21 @@
     @endif
 </div>
 
-    <div class="links">
-        @if(!isset($slot) && isset($module) && !isset($create)) <!-- index -->
-            @route('admin/'.$module.'/create')
-                <a href="{{url('admin/'.$module.'/create')}}"><i class="fa-btn fa fa-plus"></i> {{trans('messages.add_new')}}</a>
-            @endroute
-        @elseif(isset($edit) && isset($module)) <!-- edit -->
+<div class="links">
+    @if(!isset($slot) && isset($module) && !isset($create)) <!-- index -->
+        @route('admin/'.$module.'/create')
+            <a href="{{url('admin/'.$module.'/create')}}"><i class="fa-btn fa fa-plus"></i> {{trans('messages.add_new')}}</a>
+        @endroute
+    @elseif(isset($edit) && isset($module)) <!-- edit -->
 
-        @elseif(isset($create) && isset($module)) <!-- create -->
-        @elseif(isset($module)) <!-- show -->
-            @route('admin/'.$module.'/'.$object->id.'/edit')
-                <a href="{{url('admin/'.$module.'/'.$object->primary_url.'/edit')}}"><i class="fa-btn fa fa-pencil"></i> {{trans('messages.edit')}}</a>
-            @endroute
-        @endif
-            
-        @if(isset($links))
-            {{$links}}
-        @endif
-    </div>
+    @elseif(isset($create) && isset($module)) <!-- create -->
+    @elseif(isset($module)) <!-- show -->
+        @route('admin/'.$module.'/'.$object->id.'/edit')
+            <a href="{{url('admin/'.$module.'/'.$object->primary_url.'/edit')}}"><i class="fa-btn fa fa-pencil"></i> {{trans('messages.edit')}}</a>
+        @endroute
+    @endif
+        
+    @if(isset($links))
+        {{$links}}
+    @endif
+</div>
